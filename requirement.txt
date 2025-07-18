@@ -1,0 +1,9 @@
+# Core
+python-dotenv
+pandas
+openai
+PyMuPDF          # for PDF reading
+langchain
+langgraph
+tqdm             # Optional: for progress bars
+tabulate         # Optional: pretty printing tables

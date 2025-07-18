@@ -1,0 +1,17 @@
+{
+  "MRI_001": {
+    "model": "GE Signa Explorer",
+    "location": "ICU-1",
+    "installed_on": "2022-03-01"
+  },
+  "MRI_002": {
+    "model": "Siemens Avanto",
+    "location": "ICU-2",
+    "installed_on": "2021-10-15"
+  },
+  "MRI_003": {
+    "model": "Philips Ingenia",
+    "location": "Radiology",
+    "installed_on": "2023-01-10"
+  }
+}

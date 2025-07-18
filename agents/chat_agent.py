@@ -31,7 +31,7 @@ class ChatAgent:
             llm = ModelLoader().load_model()
             log("💬 Sending technician query to GPT...")
             response = llm.invoke(prompt)
-            state["chat_response"] = response.strip()
+            state["chat_response"] = str(response).strip()
         except Exception as e:
             log(f"❌ ChatAgent failed: {e}", level="ERROR")
             state["chat_response"] = f"ChatAgent error: {e}"

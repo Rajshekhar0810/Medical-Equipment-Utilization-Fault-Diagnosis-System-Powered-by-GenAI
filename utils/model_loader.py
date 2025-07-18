@@ -10,11 +10,11 @@ class ModelLoader:
         self._validate_env()
         self.config = load_config(r"config\config.yaml")
         self.model_name = self.config['llm']['model_name']
-        self.openai_api_key = os.getenv("OPENAI_API_Key")
+        self.openai_api_key = os.getenv("OPENAI_API_KEY")
 
     def _validate_env(self):
         """Validate that the required environment variables are set."""
-        required_vars = ["OPENAI_API_Key"]
+        required_vars = ["OPENAI_API_KEY"]
         missing = [var for var in required_vars if not os.getenv(var)]
         if missing:
          raise EnvironmentError(f"Missing environment variables: {missing}")

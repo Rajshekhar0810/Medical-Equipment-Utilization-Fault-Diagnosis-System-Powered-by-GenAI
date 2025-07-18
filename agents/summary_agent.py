@@ -75,9 +75,9 @@ Violation Data:
     def _split_sections(self, response: str):
         """Split GPT response into two sections based on headers."""
         try:
-            parts = response.split("### Maintenance Plan")
+            parts = response.content.split("### Maintenance Plan")
             risk = parts[0].replace("### Risk Summary", "").strip()
-            plan = parts[1].strip() if len(parts) > 1 else "Could not extract plan."
+            plan = parts[1].content.strip() if len(parts) > 1 else "Could not extract plan."
             return risk, plan
         except Exception:
-            return response.strip(), "Plan section missing."
+            return response.content.strip(), "Plan section missing."

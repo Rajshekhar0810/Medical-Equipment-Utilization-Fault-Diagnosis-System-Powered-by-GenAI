@@ -66,17 +66,25 @@ class BrochureAgent:
             if hasattr(response, "content"):
                 response_content = response.content
             else:
-                response_content = response
+                response_content = str(response)
 
             log(f"🧾 GPT raw response: {response_content}")
 
-            try:
-                extracted_specs = json.loads(response_content)
-            except Exception as e:
-                raise ValueError(f"Invalid JSON format from GPT: {e}")
+            # Clean up response for valid JSON
+            cleaned_response = (
+                response_content.strip()
+                .replace("```json", "")
+                .replace("```", "")
+                .strip()
+            )
 
-            log("✅ Specs extracted successfully from brochure.")
-            state["extracted_specs"] = extracted_specs
+            try:
+                extracted_specs = json.loads(cleaned_response)
+                log("✅ Specs extracted successfully from brochure.")
+                state["extracted_specs"] = extracted_specs
+
+            except Exception as e:
+                raise ValueError(f"Invalid JSON format from GPT: {e} | Raw: {cleaned_response}")
 
         except Exception as e:
             log(f"⚠️ GPT parsing failed: {e}", level="ERROR")

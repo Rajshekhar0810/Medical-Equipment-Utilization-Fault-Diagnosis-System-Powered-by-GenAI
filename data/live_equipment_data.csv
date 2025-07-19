@@ -1,4 +1,4 @@
 device_id,usage_hours,temperature,pressure
 MRI_001,10,72,1.9
-MRI_002,1,40,2.5
+MRI_002,1,65,1.2
 MRI_003,9,80,2.0
